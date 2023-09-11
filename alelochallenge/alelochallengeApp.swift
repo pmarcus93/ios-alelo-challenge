@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct alelochallengeApp: App {
+    @State private var products = Product.sampleData
+    @State private var shoppingCart: [Product] = []
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView(products: $products, shoppingCart: $shoppingCart)
         }
     }
 }
