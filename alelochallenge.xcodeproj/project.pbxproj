@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C7CC8A02AAE8998006A68CC /* ProductApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CC89F2AAE8998006A68CC /* ProductApi.swift */; };
 		2C9F93C32AADFD7A0057A452 /* alelochallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93C22AADFD7A0057A452 /* alelochallengeApp.swift */; };
 		2C9F93C52AADFD7A0057A452 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93C42AADFD7A0057A452 /* ContentView.swift */; };
 		2C9F93C72AADFD7C0057A452 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C9F93C62AADFD7C0057A452 /* Assets.xcassets */; };
@@ -14,6 +15,12 @@
 		2C9F93D42AADFD7D0057A452 /* alelochallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93D32AADFD7D0057A452 /* alelochallengeTests.swift */; };
 		2C9F93DE2AADFD7D0057A452 /* alelochallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93DD2AADFD7D0057A452 /* alelochallengeUITests.swift */; };
 		2C9F93E02AADFD7D0057A452 /* alelochallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93DF2AADFD7D0057A452 /* alelochallengeUITestsLaunchTests.swift */; };
+		2C9F93EE2AAE00160057A452 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93ED2AAE00160057A452 /* Product.swift */; };
+		2C9F93F12AAE02B00057A452 /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93F02AAE02B00057A452 /* ProductCardView.swift */; };
+		2C9F93F42AAE03250057A452 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93F32AAE03250057A452 /* HomeView.swift */; };
+		2C9F93F62AAE072F0057A452 /* 20002605_615_catalog_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C9F93F52AAE072F0057A452 /* 20002605_615_catalog_1.jpg */; };
+		2C9F93F82AAE07900057A452 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C9F93F72AAE07900057A452 /* Media.xcassets */; };
+		2C9F93FA2AAE39B20057A452 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93F92AAE39B20057A452 /* ProductDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C7CC89F2AAE8998006A68CC /* ProductApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductApi.swift; sourceTree = "<group>"; };
 		2C9F93BF2AADFD7A0057A452 /* alelochallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alelochallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C9F93C22AADFD7A0057A452 /* alelochallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alelochallengeApp.swift; sourceTree = "<group>"; };
 		2C9F93C42AADFD7A0057A452 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +52,12 @@
 		2C9F93D92AADFD7D0057A452 /* alelochallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = alelochallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C9F93DD2AADFD7D0057A452 /* alelochallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alelochallengeUITests.swift; sourceTree = "<group>"; };
 		2C9F93DF2AADFD7D0057A452 /* alelochallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alelochallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2C9F93ED2AAE00160057A452 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		2C9F93F02AAE02B00057A452 /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
+		2C9F93F32AAE03250057A452 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2C9F93F52AAE072F0057A452 /* 20002605_615_catalog_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 20002605_615_catalog_1.jpg; path = ../20002605_615_catalog_1.jpg; sourceTree = "<group>"; };
+		2C9F93F72AAE07900057A452 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		2C9F93F92AAE39B20057A452 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +88,8 @@
 		2C9F93B62AADFD7A0057A452 = {
 			isa = PBXGroup;
 			children = (
+				2C9F93F72AAE07900057A452 /* Media.xcassets */,
+				2C9F93F52AAE072F0057A452 /* 20002605_615_catalog_1.jpg */,
 				2C9F93C12AADFD7A0057A452 /* alelochallenge */,
 				2C9F93D22AADFD7D0057A452 /* alelochallengeTests */,
 				2C9F93DC2AADFD7D0057A452 /* alelochallengeUITests */,
@@ -94,6 +110,9 @@
 		2C9F93C12AADFD7A0057A452 /* alelochallenge */ = {
 			isa = PBXGroup;
 			children = (
+				2C9F93F22AAE03190057A452 /* Screens */,
+				2C9F93EF2AAE02950057A452 /* Components */,
+				2C9F93EC2AAE00030057A452 /* Models */,
 				2C9F93C22AADFD7A0057A452 /* alelochallengeApp.swift */,
 				2C9F93C42AADFD7A0057A452 /* ContentView.swift */,
 				2C9F93C62AADFD7C0057A452 /* Assets.xcassets */,
@@ -125,6 +144,32 @@
 				2C9F93DF2AADFD7D0057A452 /* alelochallengeUITestsLaunchTests.swift */,
 			);
 			path = alelochallengeUITests;
+			sourceTree = "<group>";
+		};
+		2C9F93EC2AAE00030057A452 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2C9F93ED2AAE00160057A452 /* Product.swift */,
+				2C7CC89F2AAE8998006A68CC /* ProductApi.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2C9F93EF2AAE02950057A452 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2C9F93F02AAE02B00057A452 /* ProductCardView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2C9F93F22AAE03190057A452 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				2C9F93F32AAE03250057A452 /* HomeView.swift */,
+				2C9F93F92AAE39B20057A452 /* ProductDetailsView.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +277,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C9F93CA2AADFD7C0057A452 /* Preview Assets.xcassets in Resources */,
+				2C9F93F62AAE072F0057A452 /* 20002605_615_catalog_1.jpg in Resources */,
+				2C9F93F82AAE07900057A452 /* Media.xcassets in Resources */,
 				2C9F93C72AADFD7C0057A452 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,8 +304,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C9F93EE2AAE00160057A452 /* Product.swift in Sources */,
 				2C9F93C52AADFD7A0057A452 /* ContentView.swift in Sources */,
 				2C9F93C32AADFD7A0057A452 /* alelochallengeApp.swift in Sources */,
+				2C9F93F42AAE03250057A452 /* HomeView.swift in Sources */,
+				2C9F93F12AAE02B00057A452 /* ProductCardView.swift in Sources */,
+				2C7CC8A02AAE8998006A68CC /* ProductApi.swift in Sources */,
+				2C9F93FA2AAE39B20057A452 /* ProductDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +482,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,6 +512,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
