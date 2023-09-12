@@ -35,6 +35,7 @@ struct ProductCardView: View {
                 Color.white
                 }
             }.frame(width: 75, height: 75)
+                .background(Color.white)
         }
     }
 }
