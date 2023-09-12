@@ -11,31 +11,49 @@ struct ProductCardView: View {
     let product: ProductApi
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
-                Text("\(product.name)")
-                    .font(.system(size: 14) .weight(.bold))
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("\(product.name)")
+                        .font(.system(size: 14) .weight(.bold))
+                        .padding(.bottom, 2)
+                    if (product.onSale) {
+                        Text("\(product.actualPrice)").foregroundStyle(Color.green)
+                            .font(.system(size: 14, weight: .semibold))
+                        Text("\(product.regularPrice)").strikethrough(true).font(.system(size: 12))
+                    } else {
+                        Text("\(product.regularPrice)").font(.system(size: 14))
+                    }
+                    Text("ou \(product.installments)")
+                        .font(.caption)
+                }
                 Spacer()
-                if (product.onSale) {
-                    Text("\(product.actualPrice)").foregroundStyle(Color.green)
-                        .font(.system(size: 14, weight: .semibold))
-                    Text("\(product.regularPrice)").strikethrough(true).font(.system(size: 12))
-                } else {
-                    Text("\(product.regularPrice)").font(.system(size: 14))
+                VStack(alignment: .trailing) {
+                    if (product.onSale) {
+                        Text("-\(product.discountPercentage)")
+                            .foregroundColor(.black)
+                            .background{
+                                Color.green
+                            }
+                            .padding()
+                    }
                 }
-            }.padding()
+            }
             Spacer()
-            AsyncImage(url: URL(string: product.image)) { phase in
-                if let image = phase.image {
-                image
-                    .resizable()
-                    .scaledToFit()
-                } else if phase.error != nil {
-                Color.red
-                } else {
-                Color.white
+            ZStack {
+                AsyncImage(url: URL(string: product.image)) { phase in
+                    if let image = phase.image {
+                    image
+                        .resizable()
+                        .scaledToFit()
+                    } else if phase.error != nil {
+                    Color.red
+                    } else {
+                    Color.white
+                    }
                 }
-            }.frame(width: 75, height: 75)
-                .background(Color.white)
+            }
+            .frame(width: 75, height: 75)
+            .background(Color.white)
         }
     }
 }
