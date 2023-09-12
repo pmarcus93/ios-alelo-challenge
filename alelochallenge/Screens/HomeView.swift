@@ -9,8 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @Binding var products: [Product]
-    @Binding var shoppingCart: [Product]
+    @Binding var shoppingCart: [ProductApi]
     @State private var productsApi: [ProductApi] = []
     @State private var isLoading = true
     
@@ -61,6 +60,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(products: .constant(Product.sampleData), shoppingCart: .constant([]))
+        HomeView(shoppingCart: .constant([]))
     }
 }
