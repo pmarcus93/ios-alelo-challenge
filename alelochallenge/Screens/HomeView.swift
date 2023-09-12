@@ -40,7 +40,7 @@ struct HomeView: View {
     }
     
     func fetchData() {
-        guard let url = URL(string: "https://www.mocky.io/v2/59b6a65a0f0000e90471257d") else {
+        guard let url = URL(string: "https://alelo-exacta-challenge.free.mockoapp.net/products") else {
             return
         }
         
@@ -58,6 +58,30 @@ struct HomeView: View {
             }
         }.resume()
     }
+}
+
+struct BadgeLabelView: View {
+    var text: String
+    var productAmount: Int
+    var icon: String
+    
+    var body: some View {
+        HStack {
+            Label(text, systemImage: icon)
+            Spacer()
+            
+            if (productAmount != 0) {
+                
+                Text("\(productAmount)")
+                    .font(.footnote)
+                    .padding(6)
+                    .background(Color.red)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
+        }
+    }
+    
 }
 
 struct HomeView_Previews: PreviewProvider {
