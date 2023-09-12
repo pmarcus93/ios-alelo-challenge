@@ -11,21 +11,51 @@ struct HomeView: View {
     
     @Binding var products: [Product]
     @Binding var shoppingCart: [Product]
-            
+    @State private var productsApi: [ProductApi] = []
+    @State private var isLoading = true
+    
     var body: some View {
         NavigationStack {
-            List($products) { $product in
-                NavigationLink(destination: ProductDetailsView(product:  $product, shoppingCart: $shoppingCart)) {
-                    ProductCardView(product: product)
+            VStack {
+                if (isLoading) {
+                    ProgressView()
+                } else {
+                    List($productsApi, id: \.name) { $product in
+                        NavigationLink(destination: ProductDetailsView(product: $product, shoppingCart: $shoppingCart)) {
+                            ProductCardView(product: product)
+                        }
+                    }
+                    .toolbar {
+                        Button(action: {}) {
+                            Image(systemName: "cart.fill")
+                        }
+                    }
+                    .navigationTitle("Mais vendidos")
                 }
+            }.onAppear {
+                fetchData()
             }
-            .toolbar {
-                Button(action: {}) {
-                    Image(systemName: "cart.fill")
-                }
-            }
-            .navigationTitle("Mais vendidos")
         }
+    }
+    
+    func fetchData() {
+        guard let url = URL(string: "https://www.mocky.io/v2/59b6a65a0f0000e90471257d") else {
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data = data {
+                do {
+                    let productResponse = try JSONDecoder().decode(ProductResponse.self, from: data)
+                    DispatchQueue.main.async {
+                        self.productsApi = productResponse.products
+                        isLoading = false
+                    }
+                } catch {
+                    print("Erro ao decodificar o JSON obtido pela API: \(error)")
+                }
+            }
+        }.resume()
     }
 }
 

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProductCardView: View {
-    let product: Product
+    let product: ProductApi
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -39,7 +39,7 @@ struct ProductCardView: View {
         }
     }
 }
-
+/*
 struct ProductCardView_Previews: PreviewProvider {
     static var product = Product.sampleData[0]
     static var previews: some View {
@@ -48,3 +48,4 @@ struct ProductCardView_Previews: PreviewProvider {
     }
 }
 
+*/
