@@ -31,11 +31,11 @@ struct HomeView: View {
                             }
                         }
                     }
-                    .navigationTitle("Mais vendidos")
                 }
             }.onAppear {
                 fetchData()
             }
+            .navigationTitle("Mais vendidos")
         }
     }
     
