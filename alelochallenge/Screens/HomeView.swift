@@ -27,7 +27,7 @@ struct HomeView: View {
                     .toolbar {
                         Button(action: {}) {
                             NavigationLink(destination: ShoppingCartView(shoppingCart: $shoppingCart)) {
-                                Image(systemName: "cart.fill")
+                                BadgeLabelView(text: "Carrinho", productAmount: shoppingCart.count, icon: "cart.fill")
                             }
                         }
                     }
@@ -71,13 +71,12 @@ struct BadgeLabelView: View {
             Spacer()
             
             if (productAmount != 0) {
-                
                 Text("\(productAmount)")
                     .font(.footnote)
-                    .padding(6)
+                    .padding(5)
                     .background(Color.red)
                     .foregroundColor(.white)
-                    .cornerRadius(10)
+                    .cornerRadius(20)
             }
         }
     }
