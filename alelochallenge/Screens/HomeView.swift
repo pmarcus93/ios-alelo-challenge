@@ -26,7 +26,9 @@ struct HomeView: View {
                     }
                     .toolbar {
                         Button(action: {}) {
-                            Image(systemName: "cart.fill")
+                            NavigationLink(destination: ShoppingCartView(shoppingCart: $shoppingCart)) {
+                                Image(systemName: "cart.fill")
+                            }
                         }
                     }
                     .navigationTitle("Mais vendidos")
