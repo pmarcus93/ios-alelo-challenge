@@ -92,9 +92,9 @@ extension Product {
         Product(
             name: "REGATA ALCINHA FOLK",
             style: "20002570",
-            codeColor: "20002570_614",
-            colorSlug: "ABC",
-            color: "PRETO",
+            codeColor: "20002570_612",
+            colorSlug: "20002570_612",
+            color: "20002570_612",
             onSale: false,
             regularPrice: "R$ 99,90",
             actualPrice: "R$ 99,90",
@@ -113,7 +113,7 @@ extension Product {
             name: "T-SHIRT LEATHER DULL",
             style: "20002602",
             codeColor: "20002602_027",
-            colorSlug: "ABC",
+            colorSlug: "marinho",
             color: "MARINHO",
             onSale: true,
             regularPrice: "R$ 139,90",
@@ -122,11 +122,11 @@ extension Product {
             installments: "3x R$ 39,97",
             image: "",
             sizes: [
-                Size(available: false, size: "PP", sku: "5807_343_0_PP", productId: "20002602_027"),
-                Size(available: true, size: "P", sku: "5807_343_0_P", productId: "20002602_027"),
-                Size(available: false, size: "M", sku: "5807_343_0_M", productId: "20002602_027"),
-                Size(available: false, size: "G", sku: "5807_343_0_G", productId: "20002602_027"),
-                Size(available: false, size: "GG", sku: "5807_343_0_GG", productId: "20002602_027"),
+                Size(available: true, size: "PP", sku: "5793_1000032_0_PP", productId: "20002602_027"),
+                Size(available: true, size: "P", sku: "5793_1000032_0_P", productId: "20002602_027"),
+                Size(available: false, size: "M", sku: "5793_1000032_0_M", productId: "20002602_027"),
+                Size(available: false, size: "G", sku: "5793_1000032_0_G", productId: "20002602_027"),
+                Size(available: false, size: "GG", sku: "5793_1000032_0_GG", productId: "20002602_027"),
             ]
         ),
     ]
