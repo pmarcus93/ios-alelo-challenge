@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C7CC8A02AAE8998006A68CC /* ProductApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CC89F2AAE8998006A68CC /* ProductApi.swift */; };
+		2C7CC8A02AAE8998006A68CC /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CC89F2AAE8998006A68CC /* Product.swift */; };
 		2C8C49C32AB1532800BB4F07 /* ShoppingCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C49C22AB1532800BB4F07 /* ShoppingCartView.swift */; };
 		2C9F93C32AADFD7A0057A452 /* alelochallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93C22AADFD7A0057A452 /* alelochallengeApp.swift */; };
 		2C9F93C52AADFD7A0057A452 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93C42AADFD7A0057A452 /* ContentView.swift */; };
@@ -16,7 +16,6 @@
 		2C9F93D42AADFD7D0057A452 /* alelochallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93D32AADFD7D0057A452 /* alelochallengeTests.swift */; };
 		2C9F93DE2AADFD7D0057A452 /* alelochallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93DD2AADFD7D0057A452 /* alelochallengeUITests.swift */; };
 		2C9F93E02AADFD7D0057A452 /* alelochallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93DF2AADFD7D0057A452 /* alelochallengeUITestsLaunchTests.swift */; };
-		2C9F93EE2AAE00160057A452 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93ED2AAE00160057A452 /* Product.swift */; };
 		2C9F93F12AAE02B00057A452 /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93F02AAE02B00057A452 /* ProductCardView.swift */; };
 		2C9F93F42AAE03250057A452 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93F32AAE03250057A452 /* HomeView.swift */; };
 		2C9F93FA2AAE39B20057A452 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93F92AAE39B20057A452 /* ProductDetailsView.swift */; };
@@ -40,7 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2C7CC89F2AAE8998006A68CC /* ProductApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductApi.swift; sourceTree = "<group>"; };
+		2C7CC89F2AAE8998006A68CC /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		2C8C49C22AB1532800BB4F07 /* ShoppingCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartView.swift; sourceTree = "<group>"; };
 		2C9F93BF2AADFD7A0057A452 /* alelochallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alelochallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C9F93C22AADFD7A0057A452 /* alelochallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alelochallengeApp.swift; sourceTree = "<group>"; };
@@ -52,7 +51,6 @@
 		2C9F93D92AADFD7D0057A452 /* alelochallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = alelochallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C9F93DD2AADFD7D0057A452 /* alelochallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alelochallengeUITests.swift; sourceTree = "<group>"; };
 		2C9F93DF2AADFD7D0057A452 /* alelochallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alelochallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		2C9F93ED2AAE00160057A452 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		2C9F93F02AAE02B00057A452 /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
 		2C9F93F32AAE03250057A452 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2C9F93F92AAE39B20057A452 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
@@ -153,8 +151,7 @@
 		2C9F93EC2AAE00030057A452 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2C9F93ED2AAE00160057A452 /* Product.swift */,
-				2C7CC89F2AAE8998006A68CC /* ProductApi.swift */,
+				2C7CC89F2AAE8998006A68CC /* Product.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -307,12 +304,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C9F93EE2AAE00160057A452 /* Product.swift in Sources */,
 				2C9F93C52AADFD7A0057A452 /* ContentView.swift in Sources */,
 				2C9F93C32AADFD7A0057A452 /* alelochallengeApp.swift in Sources */,
 				2C9F93F42AAE03250057A452 /* HomeView.swift in Sources */,
 				2C9F93F12AAE02B00057A452 /* ProductCardView.swift in Sources */,
-				2C7CC8A02AAE8998006A68CC /* ProductApi.swift in Sources */,
+				2C7CC8A02AAE8998006A68CC /* Product.swift in Sources */,
 				2C8C49C32AB1532800BB4F07 /* ShoppingCartView.swift in Sources */,
 				2C9F93FA2AAE39B20057A452 /* ProductDetailsView.swift in Sources */,
 			);

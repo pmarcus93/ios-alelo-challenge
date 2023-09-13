@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @Binding var shoppingCart: [productCart]
-    @Binding var productsApi: [ProductApi]
+    @Binding var productsApi: [Product]
     
     var body: some View {
         TabView {

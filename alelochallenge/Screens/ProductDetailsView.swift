@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProductDetailsView: View {
-    @Binding var product: ProductApi
+    @Binding var product: Product
     @Binding var shoppingCart: [productCart]
     @State private var selectedSizeIndex = 0
     @Environment(\.presentationMode) var presentationMode
@@ -17,7 +17,6 @@ struct ProductDetailsView: View {
         product.availableSizes()
     }
 
-    
     var body: some View {
         
         ZStack() {

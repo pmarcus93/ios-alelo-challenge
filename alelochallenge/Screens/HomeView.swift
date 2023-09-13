@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @Binding var shoppingCart: [productCart]
-    @Binding var productsApi: [ProductApi]
+    @Binding var productsApi: [Product]
     @State private var isLoading = true
     let apiURL = "https://alelo-exacta-challenge.free.mockoapp.net/products"
     

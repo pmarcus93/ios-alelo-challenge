@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ShoppingCartView: View {
     @Binding var shoppingCart: [productCart]
-    @Binding var products: [ProductApi]
+    @Binding var products: [Product]
 
     var body: some View {
         VStack {
@@ -28,13 +28,13 @@ struct ShoppingCartView: View {
         }
     }
 
-    private func findProduct(by productId: String) -> ProductApi? {
+    private func findProduct(by productId: String) -> Product? {
         return products.first { $0.codeColor == productId }
     }
 }
 
 struct ShoppingCartItemView: View {
-    var product: ProductApi?
+    var product: Product?
     var shoppingCardProduct: productCart
 
     var body: some View {
@@ -55,7 +55,7 @@ struct ShoppingCartItemView: View {
 
 struct TotalPriceView: View {
     var shoppingCart: [productCart]
-    var products: [ProductApi]
+    var products: [Product]
 
     var body: some View {
         HStack {
