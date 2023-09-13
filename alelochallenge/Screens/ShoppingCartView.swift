@@ -17,33 +17,25 @@ struct ShoppingCartView: View {
                 Text("Nenhum produto adicionado ao carrinho. Volte à lista de produtos e adicione produtos!")
             } else {
                 List {
-                    VStack {
-                        ForEach(shoppingCart, id: \.sku) { shoppingCardProduct in
-                            if let product = products.first(where: { $0.codeColor == shoppingCardProduct.productId }) {
-                                VStack {
+                    ForEach(shoppingCart, id: \.sku) { shoppingCardProduct in
+                            VStack {
+                                if let product = products.first(where: { $0.codeColor == shoppingCardProduct.productId }) {
                                     ProductCardView(product: product)
-                                    HStack() {
-                                        Spacer()
-                                        Text("Tamanho: \(shoppingCardProduct.size)")
-                                        Text("Quantidade: \(shoppingCardProduct.quantity)")
-                                        if(shoppingCardProduct.quantity == 1) {
-                                            Label("Remover", systemImage: "trash.fill")
-                                        }
-                                    }
+                                }
+                                HStack() {
+                                    Text("Tamanho: \(shoppingCardProduct.size)")
+                                    Text("Quantidade: \(shoppingCardProduct.quantity)")
                                 }
                             }
-                        }
-                        .onDelete(perform: self.deleteItemFromCart)
+                    }.onDelete { indexSet in
+                        shoppingCart.remove(atOffsets: indexSet)
                     }
                 }
             }
         }
     }
-    
-    private func deleteItemFromCart(at indexSet: IndexSet) {
-        self.shoppingCart.remove(atOffsets: indexSet)
-    }
 }
+
 /*
 #Preview {
     ShoppingCartView(shoppingCart: .constant([]))
