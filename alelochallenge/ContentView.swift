@@ -35,9 +35,8 @@ struct ContentView: View {
         }
         return quantity
     }
-
 }
 
 #Preview {
-    ContentView(shoppingCart: .constant([]), productsApi: .constant([]))
+    ContentView(shoppingCart: .constant(Product.shoppingCartMock), productsApi: .constant(Product.productsMock))
 }

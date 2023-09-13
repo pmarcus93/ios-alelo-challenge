@@ -68,7 +68,7 @@ struct ProductShoppingCart {
 
 
 extension Product {
-    static let listOfProductsMock: [Product] = [
+    static let productsMock: [Product] = [
         Product(
             name: "VESTIDO TRANSPASSE BOW",
             style: "20002605",
@@ -93,8 +93,8 @@ extension Product {
             name: "REGATA ALCINHA FOLK",
             style: "20002570",
             codeColor: "20002570_612",
-            colorSlug: "20002570_612",
-            color: "20002570_612",
+            colorSlug: "off-white",
+            color: "OFF WHITE",
             onSale: false,
             regularPrice: "R$ 99,90",
             actualPrice: "R$ 99,90",
@@ -102,11 +102,11 @@ extension Product {
             installments: "3x R$ 33,30",
             image: "https://d3l7rqep7l31az.cloudfront.net/images/products/20002570_002_catalog_1.jpg?1459948578",
             sizes: [
-                Size(available: false, size: "PP", sku: "5807_343_0_PP", productId: "20002570_614"),
-                Size(available: true, size: "P", sku: "5807_343_0_P", productId: "20002570_614"),
-                Size(available: false, size: "M", sku: "5807_343_0_M", productId: "20002570_614"),
-                Size(available: false, size: "G", sku: "5807_343_0_G", productId: "20002570_614"),
-                Size(available: false, size: "GG", sku: "5807_343_0_GG", productId: "20002570_614"),
+                Size(available: true, size: "PP", sku: "5723_1000058_0_PP", productId: "20002570_614"),
+                Size(available: false, size: "P", sku: "5723_1000058_0_PP", productId: "20002570_614"),
+                Size(available: true, size: "M", sku: "5723_1000058_0_PP", productId: "20002570_614"),
+                Size(available: true, size: "G", sku: "5723_1000058_0_PP", productId: "20002570_614"),
+                Size(available: true, size: "GG", sku: "5723_1000058_0_PP", productId: "20002570_614"),
             ]
         ),
         Product(
@@ -130,9 +130,11 @@ extension Product {
             ]
         ),
     ]
-/*
-    static let shoppingCartWithProducts: [ProductShoppingCart] = [
-        ProductShoppingCart(sku: "5807_343_0_P", quantity: 3, size: "", productId: String)
-    ]*/
+
+    static let shoppingCartMock: [ProductShoppingCart] = [
+        ProductShoppingCart(sku: "5807_343_0_P", quantity: 3, size: "P", productId: "20002605_613"),
+        ProductShoppingCart(sku: "5723_1000058_0_G", quantity: 1, size: "G", productId: "20002570_614"),
+        ProductShoppingCart(sku: "5793_1000032_0_PP", quantity: 5, size: "PP", productId: "20002602_027")
+    ]
 }
 

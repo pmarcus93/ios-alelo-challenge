@@ -59,7 +59,7 @@ struct ProductCardView: View {
 }
 
 struct ProductCardView_Previews: PreviewProvider {
-    static var products = Product.listOfProductsMock
+    static var products = Product.productsMock
     static var previews: some View {
     List {
         Section(header: Text("Produtos mais vendidos")) {
