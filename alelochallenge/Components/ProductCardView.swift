@@ -42,13 +42,13 @@ struct ProductCardView: View {
             ZStack {
                 AsyncImage(url: URL(string: product.image)) { phase in
                     if let image = phase.image {
-                    image
-                        .resizable()
-                        .scaledToFit()
+                        image
+                            .resizable()
+                            .scaledToFit()
                     } else if phase.error != nil {
-                    Color.red
+                        Color.red
                     } else {
-                    Color.white
+                        Color.white
                     }
                 }
             }
@@ -61,13 +61,13 @@ struct ProductCardView: View {
 struct ProductCardView_Previews: PreviewProvider {
     static var products = Product.productsMock
     static var previews: some View {
-    List {
-        Section(header: Text("Produtos mais vendidos")) {
-            ForEach(products, id: \.codeColor) { product in
-                ProductCardView(product: product)
+        List {
+            Section(header: Text("Produtos mais vendidos")) {
+                ForEach(products, id: \.codeColor) { product in
+                    ProductCardView(product: product)
                 }
             }
         }
-    .listStyle(InsetGroupedListStyle())
+        .listStyle(InsetGroupedListStyle())
     }
 }

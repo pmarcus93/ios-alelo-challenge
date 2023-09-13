@@ -10,7 +10,7 @@ import SwiftUI
 struct ShoppingCartView: View {
     @Binding var shoppingCart: [ProductShoppingCart]
     @Binding var products: [Product]
-
+    
     var body: some View {
         VStack {
             List {
@@ -27,7 +27,7 @@ struct ShoppingCartView: View {
             }
         }
     }
-
+    
     private func findProduct(by productId: String) -> Product? {
         return products.first { $0.codeColor == productId }
     }
@@ -36,7 +36,7 @@ struct ShoppingCartView: View {
 struct ShoppingCartItemView: View {
     var product: Product?
     var shoppingCardProduct: ProductShoppingCart
-
+    
     var body: some View {
         VStack {
             if let product = product {
@@ -56,7 +56,7 @@ struct ShoppingCartItemView: View {
 struct TotalPriceView: View {
     var shoppingCart: [ProductShoppingCart]
     var products: [Product]
-
+    
     var body: some View {
         HStack {
             Spacer()
@@ -66,10 +66,10 @@ struct TotalPriceView: View {
                 .fontWeight(.bold)
         }
     }
-
+    
     private var shoppingCartTotal: String {
         var totalPrice: Double = 0
-
+        
         for item in shoppingCart {
             if let product = products.first (where: { $0.codeColor == item.productId }) {
                 if let productPrice = removeCurrencySymbolAndParse(product.actualPrice) {
