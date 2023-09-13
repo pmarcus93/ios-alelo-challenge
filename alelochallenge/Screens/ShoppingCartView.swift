@@ -96,9 +96,6 @@ func removeCurrencySymbolAndParse(_ input: String) -> Double? {
 }
 
 
-
-/*
 #Preview {
-    ShoppingCartView(shoppingCart: .constant([]))
+    ShoppingCartView(shoppingCart: .constant(Product.shoppingCartMock), products: .constant(Product.productsMock))
 }
-*/
