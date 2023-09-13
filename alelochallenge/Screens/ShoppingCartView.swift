@@ -73,7 +73,7 @@ struct TotalPriceView: View {
         for item in shoppingCart {
             if let product = products.first (where: { $0.codeColor == item.productId }) {
                 if let productPrice = removeCurrencySymbolAndParse(product.actualPrice) {
-                    totalPrice += productPrice
+                    totalPrice += (productPrice * Double(item.quantity))
                 }
             }
         }
