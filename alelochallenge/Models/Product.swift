@@ -66,10 +66,10 @@ struct productCart {
     var productId: String
 }
 
-/*
-extension ProductApi {
-    static let sampleData: [ProductApi] = [
-        ProductApi(
+
+extension Product {
+    static let listOfProductsMock: [Product] = [
+        Product(
             name: "VESTIDO TRANSPASSE BOW",
             style: "20002605",
             codeColor: "20002605_613",
@@ -82,14 +82,14 @@ extension ProductApi {
             installments: "3x R$ 66,63",
             image: "https://d3l7rqep7l31az.cloudfront.net/images/products/20002605_615_catalog_1.jpg?1460136912",
             sizes: [
-                Size(available: false, size: "PP", sku: "5807_343_0_PP"),
-                Size(available: true, size: "P", sku: "5807_343_0_P"),
-                Size(available: false, size: "M", sku: "5807_343_0_M"),
-                Size(available: false, size: "G", sku: "5807_343_0_G"),
-                Size(available: false, size: "GG", sku: "5807_343_0_GG"),
+                Size(available: false, size: "PP", sku: "5807_343_0_PP", productId: "20002605_613"),
+                Size(available: true, size: "P", sku: "5807_343_0_P", productId: "20002605_613"),
+                Size(available: false, size: "M", sku: "5807_343_0_M", productId: "20002605_613"),
+                Size(available: false, size: "G", sku: "5807_343_0_G", productId: "20002605_613"),
+                Size(available: false, size: "GG", sku: "5807_343_0_GG", productId: "20002605_613"),
             ]
         ),
-        ProductApi(
+        Product(
             name: "REGATA ALCINHA FOLK",
             style: "20002570",
             codeColor: "20002570_614",
@@ -102,14 +102,14 @@ extension ProductApi {
             installments: "3x R$ 33,30",
             image: "https://d3l7rqep7l31az.cloudfront.net/images/products/20002570_002_catalog_1.jpg?1459948578",
             sizes: [
-                Size(available: false, size: "PP", sku: "5807_343_0_PP"),
-                Size(available: true, size: "P", sku: "5807_343_0_P"),
-                Size(available: false, size: "M", sku: "5807_343_0_M"),
-                Size(available: false, size: "G", sku: "5807_343_0_G"),
-                Size(available: false, size: "GG", sku: "5807_343_0_GG"),
+                Size(available: false, size: "PP", sku: "5807_343_0_PP", productId: "20002570_614"),
+                Size(available: true, size: "P", sku: "5807_343_0_P", productId: "20002570_614"),
+                Size(available: false, size: "M", sku: "5807_343_0_M", productId: "20002570_614"),
+                Size(available: false, size: "G", sku: "5807_343_0_G", productId: "20002570_614"),
+                Size(available: false, size: "GG", sku: "5807_343_0_GG", productId: "20002570_614"),
             ]
         ),
-        ProductApi(
+        Product(
             name: "T-SHIRT LEATHER DULL",
             style: "20002602",
             codeColor: "20002602_027",
@@ -122,15 +122,13 @@ extension ProductApi {
             installments: "3x R$ 39,97",
             image: "",
             sizes: [
-                Size(available: false, size: "PP", sku: "5807_343_0_PP"),
-                Size(available: true, size: "P", sku: "5807_343_0_P"),
-                Size(available: false, size: "M", sku: "5807_343_0_M"),
-                Size(available: false, size: "G", sku: "5807_343_0_G"),
-                Size(available: false, size: "GG", sku: "5807_343_0_GG"),
+                Size(available: false, size: "PP", sku: "5807_343_0_PP", productId: "20002602_027"),
+                Size(available: true, size: "P", sku: "5807_343_0_P", productId: "20002602_027"),
+                Size(available: false, size: "M", sku: "5807_343_0_M", productId: "20002602_027"),
+                Size(available: false, size: "G", sku: "5807_343_0_G", productId: "20002602_027"),
+                Size(available: false, size: "GG", sku: "5807_343_0_GG", productId: "20002602_027"),
             ]
         ),
 
     ]
 }
-
-*/
