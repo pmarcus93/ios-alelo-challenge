@@ -10,35 +10,31 @@ import SwiftUI
 struct HomeView: View {
     
     @Binding var shoppingCart: [productCart]
-    @State private var productsApi: [ProductApi] = []
+    @Binding var productsApi: [ProductApi]
     @State private var isLoading = true
     
     var body: some View {
         NavigationStack {
-            VStack {
-                if (isLoading) {
-                    ProgressView()
-                } else {
-                    List($productsApi, id: \.codeColor) { $product in
-                        NavigationLink(destination: ProductDetailsView(product: $product, shoppingCart: $shoppingCart)) {
-                            ProductCardView(product: product)
-                        }
-                    }
-                    .toolbar {
-                        Button(action: {}) {
-                            NavigationLink(destination: ShoppingCartView(shoppingCart: $shoppingCart, products: $productsApi)) {
-                                BadgeLabelView(text: "Carrinho", productAmount: getShoppingCartProductQuantity(), icon: "cart.fill")
+            List {
+                Section(header: Text("Produtos mais vendidos")) {
+                    if (isLoading) {
+                        ProgressView()
+                    } else {
+                        ForEach($productsApi, id: \.codeColor) { $product in
+                            NavigationLink(destination: ProductDetailsView(product: $product, shoppingCart: $shoppingCart)) {
+                                ProductCardView(product: product)
                             }
                         }
                     }
                 }
-            }.onAppear {
+            }
+            .listStyle(InsetGroupedListStyle())
+            .onAppear {
                 fetchData()
             }
-            .navigationTitle("Mais vendidos")
         }
     }
-    
+
     func fetchData() {
         guard let url = URL(string: "https://alelo-exacta-challenge.free.mockoapp.net/products") else {
             return
@@ -57,14 +53,6 @@ struct HomeView: View {
                 }
             }
         }.resume()
-    }
-
-    func getShoppingCartProductQuantity() -> Int {
-        var quantity = 0
-        for item in shoppingCart {
-            quantity += item.quantity
-        }
-        return quantity
     }
 }
 
@@ -92,6 +80,6 @@ struct BadgeLabelView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(shoppingCart: .constant([]))
+        HomeView(shoppingCart: .constant([]), productsApi: .constant([]))
     }
 }

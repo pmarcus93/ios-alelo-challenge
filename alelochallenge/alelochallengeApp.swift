@@ -10,10 +10,11 @@ import SwiftUI
 @main
 struct alelochallengeApp: App {
     @State private var shoppingCart: [productCart] = []
+    @State private var productsApi: [ProductApi] = []
 
     var body: some Scene {
         WindowGroup {
-            HomeView(shoppingCart: $shoppingCart)
+            ContentView(shoppingCart: $shoppingCart, productsApi: $productsApi)
         }
     }
 }

@@ -8,17 +8,36 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @Binding var shoppingCart: [productCart]
+    @Binding var productsApi: [ProductApi]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            HomeView(shoppingCart: $shoppingCart, productsApi: $productsApi)
+                .tabItem {
+                    Image(systemName: "tshirt.fill")
+                    Text("Produtos")
+                }
+            ShoppingCartView(shoppingCart: $shoppingCart, products: $productsApi)
+                .tabItem {
+                    Image(systemName: "cart.fill")
+                    Text("Carrinho")
+                }
+                .badge(getShoppingCartProductQuantity())
         }
-        .padding()
     }
+    
+    func getShoppingCartProductQuantity() -> Int {
+        var quantity = 0
+        for item in shoppingCart {
+            quantity += item.quantity
+        }
+        return quantity
+    }
+
 }
 
 #Preview {
-    ContentView()
+    ContentView(shoppingCart: .constant([]), productsApi: .constant([]))
 }
