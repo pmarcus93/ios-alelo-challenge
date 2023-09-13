@@ -27,7 +27,7 @@ struct HomeView: View {
                     .toolbar {
                         Button(action: {}) {
                             NavigationLink(destination: ShoppingCartView(shoppingCart: $shoppingCart, products: $productsApi)) {
-                                BadgeLabelView(text: "Carrinho", productAmount: $shoppingCart.count, icon: "cart.fill")
+                                BadgeLabelView(text: "Carrinho", productAmount: getShoppingCartProductQuantity(), icon: "cart.fill")
                             }
                         }
                     }
@@ -58,6 +58,14 @@ struct HomeView: View {
             }
         }.resume()
     }
+
+    func getShoppingCartProductQuantity() -> Int {
+        var quantity = 0
+        for item in shoppingCart {
+            quantity += item.quantity
+        }
+        return quantity
+    }
 }
 
 struct BadgeLabelView: View {
@@ -80,7 +88,6 @@ struct BadgeLabelView: View {
             }
         }
     }
-    
 }
 
 struct HomeView_Previews: PreviewProvider {
