@@ -13,13 +13,17 @@ struct ProductDetailsView: View {
     @State private var selectedSizeIndex = 0
     @Environment(\.presentationMode) var presentationMode
     
+    private var availableSizes: [Size] {
+        product.availableSizes()
+    }
+
+    
     var body: some View {
         
         ZStack() {
             ScrollView {
                 VStack {
                     VStack(alignment: .leading) {
-                        
                         ZStack {
                             AsyncImage(url: URL(string: product.image)) { phase in
                                 switch phase {
@@ -82,6 +86,7 @@ struct ProductDetailsView: View {
                                 }
                             }
                             
+                            
                             Text("ou \(product.installments)")
                                 .font(.caption)
 
@@ -99,13 +104,12 @@ struct ProductDetailsView: View {
                                     shoppingCart[index].quantity = shoppingCart[index].quantity + 1
                                 } else {
                                     shoppingCart.append(
-                                        productCart(sku: product.availableSizes()[selectedSizeIndex].sku,
+                                        productCart(sku: availableSizes[selectedSizeIndex].sku,
                                             quantity: 1,
-                                            size: product.availableSizes()[selectedSizeIndex].size,
+                                            size: availableSizes[selectedSizeIndex].size,
                                             productId: product.codeColor)
                                     )
                                 }
-                                print(shoppingCart)
                                 self.presentationMode.wrappedValue.dismiss()
                             }) {
                                 Label("Adicionar ao carrinho", systemImage: "cart.fill")
