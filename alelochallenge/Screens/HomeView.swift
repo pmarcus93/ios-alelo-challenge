@@ -12,12 +12,13 @@ struct HomeView: View {
     @Binding var shoppingCart: [productCart]
     @Binding var productsApi: [ProductApi]
     @State private var isLoading = true
+    let apiURL = "https://alelo-exacta-challenge.free.mockoapp.net/products"
     
     var body: some View {
         NavigationStack {
             List {
                 Section(header: Text("Produtos mais vendidos")) {
-                    if (isLoading) {
+                    if isLoading {
                         ProgressView()
                     } else {
                         ForEach($productsApi, id: \.codeColor) { $product in
@@ -36,7 +37,7 @@ struct HomeView: View {
     }
 
     func fetchData() {
-        guard let url = URL(string: "https://alelo-exacta-challenge.free.mockoapp.net/products") else {
+        guard let url = URL(string: apiURL) else {
             return
         }
         
@@ -53,28 +54,6 @@ struct HomeView: View {
                 }
             }
         }.resume()
-    }
-}
-
-struct BadgeLabelView: View {
-    var text: String
-    var productAmount: Int
-    var icon: String
-    
-    var body: some View {
-        HStack {
-            Label(text, systemImage: icon)
-            Spacer()
-            
-            if (productAmount != 0) {
-                Text("\(productAmount)")
-                    .font(.footnote)
-                    .padding(5)
-                    .background(Color.red)
-                    .foregroundColor(.white)
-                    .cornerRadius(20)
-            }
-        }
     }
 }
 
