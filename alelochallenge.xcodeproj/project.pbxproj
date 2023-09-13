@@ -81,13 +81,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C43C2082AB24EFA00192222 /* Newtorking */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Newtorking;
-			sourceTree = "<group>";
-		};
 		2C9F93B62AADFD7A0057A452 = {
 			isa = PBXGroup;
 			children = (
@@ -111,7 +104,6 @@
 		2C9F93C12AADFD7A0057A452 /* alelochallenge */ = {
 			isa = PBXGroup;
 			children = (
-				2C43C2082AB24EFA00192222 /* Newtorking */,
 				2C9F93F22AAE03190057A452 /* Screens */,
 				2C9F93EF2AAE02950057A452 /* Components */,
 				2C9F93EC2AAE00030057A452 /* Models */,
