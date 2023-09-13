@@ -12,29 +12,70 @@ struct ShoppingCartView: View {
     @Binding var products: [ProductApi]
 
     var body: some View {
-        VStack {
-            if (shoppingCart.isEmpty) {
-                Text("Nenhum produto adicionado ao carrinho. Volte à lista de produtos e adicione produtos!")
-            } else {
-                List {
+        VStack() {
+            List {
+                if (shoppingCart.isEmpty) {
+                    Text("Nenhum produto adicionado ao carrinho!")
+                } else {
                     ForEach(shoppingCart, id: \.sku) { shoppingCardProduct in
                             VStack {
                                 if let product = products.first(where: { $0.codeColor == shoppingCardProduct.productId }) {
                                     ProductCardView(product: product)
                                 }
                                 HStack() {
-                                    Text("Tamanho: \(shoppingCardProduct.size)")
+                                    Text("Tam.: \(shoppingCardProduct.size)")
+                                        .font(.caption)
                                     Text("Quantidade: \(shoppingCardProduct.quantity)")
+                                        .font(.caption)
+                                    Spacer()
                                 }
                             }
                     }.onDelete { indexSet in
                         shoppingCart.remove(atOffsets: indexSet)
                     }
+                    HStack {
+                        Spacer()
+                        Text("Valor total:")
+                        Text("R$\(shoppingCartTotal())")
+                            .foregroundColor(Color.green)
+                            .fontWeight(.bold)
+                    }
                 }
             }
         }
     }
+    
+    func shoppingCartTotal() -> String {
+        var totalPrice: Double = 0
+
+        for item in shoppingCart {
+            if let product = products.first (where: { $0.codeColor == item.productId }) {
+                if let productPrice = removeCurrencySymbolAndParse(product.actualPrice) {
+                    totalPrice += productPrice
+                } else {
+                    print("Erro ao fazer o parse do valor monetário: \(product.actualPrice)")
+                }
+            }
+        }
+        return String(format: "%.2f", totalPrice)
+    }
 }
+
+
+func removeCurrencySymbolAndParse(_ input: String) -> Double? {
+    let sanitizedInput = input.replacingOccurrences(of: ",", with: ".")
+    
+    let cleanedString = sanitizedInput.replacingOccurrences(of: "[^0-9.]", with: "", options: .regularExpression)
+    
+    if let numericValue = Double(cleanedString) {
+        let formattedValue = String(format: "%.2f", numericValue)
+        return Double(formattedValue)
+    } else {
+        return nil
+    }
+}
+
+
 
 /*
 #Preview {
