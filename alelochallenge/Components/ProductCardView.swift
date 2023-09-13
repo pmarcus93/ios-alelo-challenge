@@ -57,13 +57,18 @@ struct ProductCardView: View {
         }
     }
 }
-/*
+
+
 struct ProductCardView_Previews: PreviewProvider {
-    static var product = Product.sampleData[0]
+    static var products = Product.listOfProductsMock
     static var previews: some View {
-        ProductCardView(product: product)
-            .previewLayout(.fixed(width: 480, height: 150))
+    List {
+        Section(header: Text("Produtos mais vendidos")) {
+            ForEach(products, id: \.codeColor) { product in
+                ProductCardView(product: product)
+                }
+            }
+        }
+    .listStyle(InsetGroupedListStyle())
     }
 }
-
-*/
