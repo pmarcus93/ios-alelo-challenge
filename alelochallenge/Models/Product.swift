@@ -59,7 +59,7 @@ struct ProductResponse: Codable {
     let products: [Product]
 }
 
-struct productCart {
+struct ProductShoppingCart {
     var sku: String
     var quantity: Int
     var size: String
@@ -129,6 +129,10 @@ extension Product {
                 Size(available: false, size: "GG", sku: "5807_343_0_GG", productId: "20002602_027"),
             ]
         ),
-
     ]
+/*
+    static let shoppingCartWithProducts: [ProductShoppingCart] = [
+        ProductShoppingCart(sku: "5807_343_0_P", quantity: 3, size: "", productId: String)
+    ]*/
 }
+

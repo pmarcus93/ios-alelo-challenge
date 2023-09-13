@@ -58,7 +58,6 @@ struct ProductCardView: View {
     }
 }
 
-
 struct ProductCardView_Previews: PreviewProvider {
     static var products = Product.listOfProductsMock
     static var previews: some View {

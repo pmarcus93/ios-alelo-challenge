@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductDetailsView: View {
     @Binding var product: Product
-    @Binding var shoppingCart: [productCart]
+    @Binding var shoppingCart: [ProductShoppingCart]
     @State private var selectedSizeIndex = 0
     @Environment(\.presentationMode) var presentationMode
     
@@ -18,7 +18,6 @@ struct ProductDetailsView: View {
     }
 
     var body: some View {
-        
         ZStack() {
             ScrollView {
                 VStack {
@@ -103,7 +102,7 @@ struct ProductDetailsView: View {
                                     shoppingCart[index].quantity = shoppingCart[index].quantity + 1
                                 } else {
                                     shoppingCart.append(
-                                        productCart(sku: availableSizes[selectedSizeIndex].sku,
+                                        ProductShoppingCart(sku: availableSizes[selectedSizeIndex].sku,
                                             quantity: 1,
                                             size: availableSizes[selectedSizeIndex].size,
                                             productId: product.codeColor)
@@ -122,8 +121,6 @@ struct ProductDetailsView: View {
         }.navigationBarTitleDisplayMode(.inline)
     }
 }
-
-
 
 /*
 #Preview {
