@@ -21,7 +21,6 @@ struct ProductApi: Codable {
     let image: String
     let sizes: [Size]
     
-    
     enum CodingKeys: String, CodingKey {
         case name
         case style
@@ -36,18 +35,38 @@ struct ProductApi: Codable {
         case image
         case sizes
     }
+    
+    func availableSizes() -> [Size] {
+        return sizes.map { size in
+            return Size(
+                available: size.available,
+                size: size.size,
+                sku: size.sku,
+                productId: self.colorSlug
+            )
+        }.filter { $0.available == true }
+    }
 }
 
 struct Size: Codable {
     let available: Bool
     let size: String
     let sku: String
+    let productId: String?
 }
 
 struct ProductResponse: Codable {
     let products: [ProductApi]
 }
 
+struct productCart {
+    var sku: String
+    var quantity: Int
+    var size: String
+    var productId: String
+}
+
+/*
 extension ProductApi {
     static let sampleData: [ProductApi] = [
         ProductApi(
@@ -113,3 +132,5 @@ extension ProductApi {
 
     ]
 }
+
+*/

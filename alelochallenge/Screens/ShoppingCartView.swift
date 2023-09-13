@@ -8,17 +8,33 @@
 import SwiftUI
 
 struct ShoppingCartView: View {
-    @Binding var shoppingCart: [ProductApi]
+    @Binding var shoppingCart: [productCart]
+    @Binding var products: [ProductApi]
+
     var body: some View {
         VStack {
             if (shoppingCart.isEmpty) {
                 Text("Nenhum produto adicionado ao carrinho. Volte à lista de produtos e adicione produtos!")
             } else {
                 List {
-                    ForEach($shoppingCart, id: \.name) { $product in
-                        ProductCardView(product: product)
+                    VStack {
+                        ForEach(shoppingCart, id: \.sku) { shoppingCardProduct in
+                            if let product = products.first(where: { $0.codeColor == shoppingCardProduct.productId }) {
+                                VStack {
+                                    ProductCardView(product: product)
+                                    HStack() {
+                                        Spacer()
+                                        Text("Tamanho: \(shoppingCardProduct.size)")
+                                        Text("Quantidade: \(shoppingCardProduct.quantity)")
+                                        if(shoppingCardProduct.quantity == 1) {
+                                            Label("Remover", systemImage: "trash.fill")
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .onDelete(perform: self.deleteItemFromCart)
                     }
-                    .onDelete(perform: self.deleteItemFromCart)
                 }
             }
         }
@@ -28,7 +44,8 @@ struct ShoppingCartView: View {
         self.shoppingCart.remove(atOffsets: indexSet)
     }
 }
-
+/*
 #Preview {
     ShoppingCartView(shoppingCart: .constant([]))
 }
+*/

@@ -9,11 +9,9 @@ import SwiftUI
 
 struct ProductDetailsView: View {
     @Binding var product: ProductApi
-    @Binding var shoppingCart: [ProductApi]
-    @State private var selectedSize = ""
+    @Binding var shoppingCart: [productCart]
+    @State private var selectedSizeIndex = 0
     @Environment(\.presentationMode) var presentationMode
-
-    var avaiableSizes = [String]()
     
     var body: some View {
         
@@ -87,9 +85,27 @@ struct ProductDetailsView: View {
                             Text("ou \(product.installments)")
                                 .font(.caption)
 
+                            VStack(alignment: .leading) {
+                                Text("Selecione o tamanho: ")
+                                Picker("Sizes", selection: $selectedSizeIndex) {
+                                    ForEach(0..<product.availableSizes().count, id: \.self) { index in
+                                        Text(product.availableSizes()[index].size).tag(index)
+                                    }
+                                }.pickerStyle(SegmentedPickerStyle())
+                            }
                             
                             Button(action: {
-                                shoppingCart.append(product)
+                                if let index = shoppingCart.firstIndex(where: {$0.productId == product.codeColor &&  $0.size == product.availableSizes()[selectedSizeIndex].size}) {
+                                    shoppingCart[index].quantity = shoppingCart[index].quantity + 1
+                                } else {
+                                    shoppingCart.append(
+                                        productCart(sku: product.availableSizes()[selectedSizeIndex].sku,
+                                            quantity: 1,
+                                            size: product.availableSizes()[selectedSizeIndex].size,
+                                            productId: product.codeColor)
+                                    )
+                                }
+                                print(shoppingCart)
                                 self.presentationMode.wrappedValue.dismiss()
                             }) {
                                 Label("Adicionar ao carrinho", systemImage: "cart.fill")
@@ -106,7 +122,8 @@ struct ProductDetailsView: View {
 
 
 
-
+/*
 #Preview {
     ProductDetailsView(product: .constant(ProductApi.sampleData[2]), shoppingCart: .constant([]))
 }
+*/

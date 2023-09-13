@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @Binding var shoppingCart: [ProductApi]
+    @Binding var shoppingCart: [productCart]
     @State private var productsApi: [ProductApi] = []
     @State private var isLoading = true
     
@@ -19,15 +19,15 @@ struct HomeView: View {
                 if (isLoading) {
                     ProgressView()
                 } else {
-                    List($productsApi, id: \.name) { $product in
+                    List($productsApi, id: \.codeColor) { $product in
                         NavigationLink(destination: ProductDetailsView(product: $product, shoppingCart: $shoppingCart)) {
                             ProductCardView(product: product)
                         }
                     }
                     .toolbar {
                         Button(action: {}) {
-                            NavigationLink(destination: ShoppingCartView(shoppingCart: $shoppingCart)) {
-                                BadgeLabelView(text: "Carrinho", productAmount: shoppingCart.count, icon: "cart.fill")
+                            NavigationLink(destination: ShoppingCartView(shoppingCart: $shoppingCart, products: $productsApi)) {
+                                BadgeLabelView(text: "Carrinho", productAmount: $shoppingCart.count, icon: "cart.fill")
                             }
                         }
                     }
