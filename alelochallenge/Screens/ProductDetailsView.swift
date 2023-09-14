@@ -23,21 +23,30 @@ struct ProductDetailsView: View {
                 VStack {
                     VStack(alignment: .leading) {
                         ZStack {
-                            AsyncImage(url: URL(string: product.image)) { phase in
-                                switch phase {
-                                case .empty:
-                                    ProgressView()
-                                case .success(let image):
-                                    image
-                                        .renderingMode(.original)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .aspectRatio(contentMode: .fit)
-                                        .clipped()
-                                case .failure(_):
-                                    Text("Não foi possível carregar a imagem.")
-                                @unknown default:
-                                    EmptyView()
+                            if (product.image.isEmpty) {
+                                Image(systemName: "camera.on.rectangle.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 100, height: 100)
+                                    .foregroundColor(.gray)
+                                    .padding()
+                            } else {
+                                AsyncImage(url: URL(string: product.image)) { phase in
+                                    switch phase {
+                                    case .empty:
+                                        ProgressView()
+                                    case .success(let image):
+                                        image
+                                            .renderingMode(.original)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .aspectRatio(contentMode: .fit)
+                                            .clipped()
+                                    case .failure(_):
+                                        Text("Não foi possível carregar a imagem.")
+                                    @unknown default:
+                                        EmptyView()
+                                    }
                                 }
                             }
                             VStack(alignment: .trailing) {
