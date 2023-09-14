@@ -9,45 +9,47 @@ import SwiftUI
 
 struct ProductCardView: View {
     let product: Product
+    
     var body: some View {
         HStack {
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("\(product.name)")
-                        .font(.system(size: 14) .weight(.bold))
-                        .padding(.bottom, 2)
-                    if (product.onSale) {
-                        Text("\(product.actualPrice)").foregroundStyle(Color.green)
-                            .font(.system(size: 14, weight: .semibold))
-                        Text("\(product.regularPrice)").strikethrough(true).font(.system(size: 12))
-                    } else {
-                        Text("\(product.regularPrice)").font(.system(size: 14))
-                    }
-                    Text("ou \(product.installments)")
-                        .font(.caption)
+            VStack(alignment: .leading) {
+                Text(product.name)
+                    .font(.system(size: 14).weight(.bold))
+                    .padding(.bottom, 2)
+                
+                Text(product.onSale ? product.actualPrice : product.regularPrice)
+                    .font(.system(size: 14, weight: product.onSale ? .semibold : .regular))
+                    .foregroundStyle(product.onSale ? Color.green : Color.primary)
+                
+                if product.onSale {
+                    Text(product.regularPrice)
+                        .strikethrough(true)
+                        .font(.system(size: 12))
                 }
-                Spacer()
-                VStack(alignment: .trailing) {
-                    if (product.onSale) {
-                        Text("-\(product.discountPercentage)")
-                            .foregroundColor(.black)
-                            .background{
-                                Color.green
-                            }
-                            .padding()
-                    }
-                }
+                
+                Text("ou \(product.installments)")
+                    .font(.caption)
             }
+            
             Spacer()
+            
+            if product.onSale {
+                Text("-\(product.discountPercentage)")
+                    .foregroundColor(.black)
+                    .background(Capsule().foregroundColor(Color.green))
+                    .padding()
+            }
+            
             ZStack {
                 AsyncImage(url: URL(string: product.image)) { phase in
-                    if let image = phase.image {
+                    switch phase {
+                    case .success(let image):
                         image
                             .resizable()
                             .scaledToFit()
-                    } else if phase.error != nil {
+                    case .failure(_):
                         Color.red
-                    } else {
+                    default:
                         Color.white
                     }
                 }
