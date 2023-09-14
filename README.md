@@ -10,7 +10,7 @@ A ideia foi construir um MVP respeitando ao máximo as guidelines de design da A
 
 Compatível com redimensionamento em iPads com suporte ao organizador visual. 
 
-<video src="redimensionamento_iPadOS17.mp4" controls title="Title"></video>
+https://github.com/pmarcus93/ios-alelo-challenge/assets/6492177/2bdf97c3-f2b8-4998-886c-3483b923ecdb
 
 Funcionalidades:
 
