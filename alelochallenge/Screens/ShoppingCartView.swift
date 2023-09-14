@@ -40,33 +40,34 @@ struct ShoppingCartItemView: View {
     
     var body: some View {
         VStack {
+        
             if let product = product {
                 ProductCardView(product: product)
             }
-                VStack(alignment: .leading, spacing: 0) {
+                
+            HStack() {
+                Text("Tamanho:")
+                    .font(.system(size: 14))
+                Text("\(shoppingCardProduct.size)")
+                    .font(.system(size: 16).weight(.bold))
+                
+                Stepper {
                     HStack(spacing: 0) {
-                        Text("Tamanho: ")
-                            .font(.system(size: 18))
-                        Text("\(shoppingCardProduct.size)")
-                            .font(.system(size: 18).weight(.bold))
+                        Text("Quantidade: ")
+                            .font(.system(size: 14))
+                        Text("\(shoppingCardProduct.quantity)")
+                            .font(.system(size: 16).weight(.bold))
                     }
-                    Stepper {
-                        HStack(spacing: 0) {
-                            Text("Quantidade: ")
-                                .font(.system(size: 18))
-                            Text("\(shoppingCardProduct.quantity)")
-                                .font(.system(size: 18).weight(.bold))
-                        }
-                    } onIncrement: {
-                        shoppingCardProduct.quantity += 1
-                    } onDecrement: {
-                        if (shoppingCardProduct.quantity > 1) {
-                            shoppingCardProduct.quantity -= 1
-                        } else {
-                            shoppingCart.removeAll {$0.sku == shoppingCardProduct.sku}
-                        }
+                } onIncrement: {
+                    shoppingCardProduct.quantity += 1
+                } onDecrement: {
+                    if (shoppingCardProduct.quantity > 1) {
+                        shoppingCardProduct.quantity -= 1
+                    } else {
+                        shoppingCart.removeAll {$0.sku == shoppingCardProduct.sku}
                     }
-            }
+                }
+            }.padding(.top)
         }
     }
 }
