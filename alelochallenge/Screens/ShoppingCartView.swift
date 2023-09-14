@@ -17,8 +17,8 @@ struct ShoppingCartView: View {
                 if shoppingCart.isEmpty {
                     Text("Nenhum produto adicionado ao carrinho!")
                 } else {
-                    ForEach(shoppingCart, id: \.sku) { shoppingCardProduct in
-                        ShoppingCartItemView(product: findProduct(by: shoppingCardProduct.productId), shoppingCardProduct: shoppingCardProduct)
+                    ForEach($shoppingCart, id: \.sku) { $shoppingCardProduct in
+                        ShoppingCartItemView(product: findProduct(by: shoppingCardProduct.productId), shoppingCardProduct: $shoppingCardProduct, shoppingCart: $shoppingCart)
                     }.onDelete { indexSet in
                         shoppingCart.remove(atOffsets: indexSet)
                     }
@@ -35,19 +35,37 @@ struct ShoppingCartView: View {
 
 struct ShoppingCartItemView: View {
     var product: Product?
-    var shoppingCardProduct: ProductShoppingCart
+    @Binding var shoppingCardProduct: ProductShoppingCart
+    @Binding var shoppingCart: [ProductShoppingCart]
     
     var body: some View {
         VStack {
             if let product = product {
                 ProductCardView(product: product)
             }
-            HStack {
-                Text("Tam.: \(shoppingCardProduct.size)")
-                    .font(.caption)
-                Text("Quantidade: \(shoppingCardProduct.quantity)")
-                    .font(.caption)
-                Spacer()
+                VStack(alignment: .leading, spacing: 0) {
+                    HStack(spacing: 0) {
+                        Text("Tamanho: ")
+                            .font(.system(size: 18))
+                        Text("\(shoppingCardProduct.size)")
+                            .font(.system(size: 18).weight(.bold))
+                    }
+                    Stepper {
+                        HStack(spacing: 0) {
+                            Text("Quantidade: ")
+                                .font(.system(size: 18))
+                            Text("\(shoppingCardProduct.quantity)")
+                                .font(.system(size: 18).weight(.bold))
+                        }
+                    } onIncrement: {
+                        shoppingCardProduct.quantity += 1
+                    } onDecrement: {
+                        if (shoppingCardProduct.quantity > 1) {
+                            shoppingCardProduct.quantity -= 1
+                        } else {
+                            shoppingCart.removeAll {$0.sku == shoppingCardProduct.sku}
+                        }
+                    }
             }
         }
     }
