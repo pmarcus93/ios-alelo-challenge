@@ -28,5 +28,5 @@ struct AsyncImageSmallView: View {
 }
 
 #Preview {
-    AsyncImageSmallView()
+    AsyncImageSmallView(imageUrl: Product.productsMock[0].image)
 }
