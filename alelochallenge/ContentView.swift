@@ -19,12 +19,16 @@ struct ContentView: View {
                     Image(systemName: "tshirt.fill")
                     Text("Produtos")
                 }
+                .accessibilityLabel("Produtos")
+                .accessibilityAddTraits(.isButton)
             ShoppingCartView(shoppingCart: $shoppingCart, products: $productsApi)
                 .tabItem {
                     Image(systemName: "cart.fill")
                     Text("Carrinho")
                 }
                 .badge(getShoppingCartProductQuantity())
+                .accessibilityLabel("Carrinho de compras com \(getShoppingCartProductQuantity()) itens adicionados")
+                .accessibilityAddTraits(.isButton)
         }
     }
     
