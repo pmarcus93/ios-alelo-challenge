@@ -41,27 +41,10 @@ struct ProductCardView: View {
             }
             
             ZStack {
-                
-                if(product.image.isEmpty) {
-                    Image(systemName: "camera.on.rectangle.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 25, height: 25)
-                        .foregroundColor(.gray)
-                        .padding()
+                if (product.image.isEmpty) {
+                    NoImageSmallView()
                 } else {
-                    AsyncImage(url: URL(string: product.image)) { phase in
-                        switch phase {
-                        case .success(let image):
-                            image
-                                .resizable()
-                                .scaledToFit()
-                        case .failure(_):
-                            Color.red
-                        default:
-                            Color.white
-                        }
-                    }
+                    AsyncImageSmallView(imageUrl: product.image)
                 }
             }
             .frame(width: 75, height: 75)
