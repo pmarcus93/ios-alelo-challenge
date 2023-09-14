@@ -14,7 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            HomeView(shoppingCart: $shoppingCart, productsApi: $productsApi)
+            ProductListView(shoppingCart: $shoppingCart, productsApi: $productsApi)
                 .tabItem {
                     Image(systemName: "tshirt.fill")
                     Text("Produtos")

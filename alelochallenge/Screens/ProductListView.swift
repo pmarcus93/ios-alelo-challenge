@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct ProductListView: View {
     
     @Binding var shoppingCart: [ProductShoppingCart]
     @Binding var productsApi: [Product]
@@ -59,6 +59,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(shoppingCart: .constant(Product.shoppingCartMock), productsApi: .constant(Product.productsMock))
+        ProductListView(shoppingCart: .constant(Product.shoppingCartMock), productsApi: .constant(Product.productsMock))
     }
 }

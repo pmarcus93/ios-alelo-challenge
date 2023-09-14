@@ -84,7 +84,6 @@ struct ProductDetailsView: View {
                                 }
                             }
                             
-                            
                             Text("ou \(product.installments)")
                                 .font(.caption)
 
