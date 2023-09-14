@@ -13,15 +13,28 @@ struct ShoppingCartView: View {
     
     var body: some View {
         VStack {
-            List {
                 if shoppingCart.isEmpty {
-                    Text("Nenhum produto adicionado ao carrinho!")
-                } else {
-                    ForEach($shoppingCart, id: \.sku) { $shoppingCardProduct in
-                        ShoppingCartItemView(product: findProduct(by: shoppingCardProduct.productId), shoppingCardProduct: $shoppingCardProduct, shoppingCart: $shoppingCart)
-                    }.onDelete { indexSet in
-                        shoppingCart.remove(atOffsets: indexSet)
+                    VStack {
+                        Image(systemName: "cart.badge.minus")
+                            .font(.largeTitle)
+                            .foregroundColor(.gray)
+                        
+                        Text("Seu carrinho de compras está vazio")
+                            .font(.headline)
+                            .foregroundColor(.gray)
+                        
+                        Text("Que tal adicionar alguns produtos no carrinho?")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
                     }
+                    .padding()
+                } else {
+                    List {
+                        ForEach($shoppingCart, id: \.sku) { $shoppingCardProduct in
+                            ShoppingCartItemView(product: findProduct(by: shoppingCardProduct.productId), shoppingCardProduct: $shoppingCardProduct, shoppingCart: $shoppingCart)
+                        }.onDelete { indexSet in
+                            shoppingCart.remove(atOffsets: indexSet)
+                        }
                     TotalPriceView(shoppingCart: shoppingCart, products: products)
                 }
             }
