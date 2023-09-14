@@ -4,6 +4,9 @@ Este repositório contém o código do desafio técnico proposto pela Exactawork
 
 A ideia foi construir um MVP respeitando ao máximo as guidelines de design da Apple, tornando a aplicação muito mais integrada ao sistema operacional. Foram utilizados Swift e SwiftUI para a construção da aplicação.
 
+App desenvolvido na versão beta do **XCode 15**, que deve ser lançado junto com o MacOS Sonoma.  
+Caso não consiga executar o projeto localmente em versões anteriores da IDE, por favor me contate.
+
 ![Captura de tela do app no modo escuro](/screenshots/AleloChallengeDarkMode.jpg)
 ![Captura de tela do app no modo claro](/screenshots/AleloChallengeLightMode.jpg)
 
@@ -26,4 +29,4 @@ Funcionalidades:
 Notas:
 
 - Como o único item sem repetição em cada elemento retornado pela API é a propriedade code_color, o utilizei como identificador.
-- Apesar de já trabalhar com mobile, este é meu primeiro projeto Swift / Swift UI nativo. Portanto, há muito o que melhorar no código, principalmente em relação à binding e modelagem de dados.
+- Apesar de já trabalhar com mobile, este é meu primeiro projeto Swift / Swift UI nativo. Portanto, há muito o que melhorar no código, principalmente em relação à binding, modelagem de dados e acessibilidade.
