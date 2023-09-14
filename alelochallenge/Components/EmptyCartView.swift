@@ -9,7 +9,20 @@ import SwiftUI
 
 struct EmptyCartView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Image(systemName: "cart.badge.minus")
+                .font(.largeTitle)
+                .foregroundColor(.gray)
+            
+            Text("Seu carrinho de compras está vazio")
+                .font(.headline)
+                .foregroundColor(.gray)
+            
+            Text("Que tal adicionar alguns produtos no carrinho?")
+                .font(.subheadline)
+                .foregroundColor(.gray)
+        }
+        .padding()
     }
 }
 

@@ -14,20 +14,7 @@ struct ShoppingCartView: View {
     var body: some View {
         VStack {
                 if shoppingCart.isEmpty {
-                    VStack {
-                        Image(systemName: "cart.badge.minus")
-                            .font(.largeTitle)
-                            .foregroundColor(.gray)
-                        
-                        Text("Seu carrinho de compras está vazio")
-                            .font(.headline)
-                            .foregroundColor(.gray)
-                        
-                        Text("Que tal adicionar alguns produtos no carrinho?")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                    }
-                    .padding()
+                    EmptyCartView()
                 } else {
                     List {
                         ForEach($shoppingCart, id: \.sku) { $shoppingCardProduct in
