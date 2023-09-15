@@ -23,7 +23,7 @@ struct ProductListView: View {
                     } else {
                         ForEach($productsApi, id: \.codeColor) { $product in
                             NavigationLink(destination: ProductDetailsView(product: $product, shoppingCart: $shoppingCart)) {
-                                ProductCardView(product: product)
+                                ProductItemView(product: product)
                             }
                         }
                     }
