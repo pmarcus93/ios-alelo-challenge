@@ -54,15 +54,10 @@ struct ProductDetailsView: View {
                                     Spacer()
                                     VStack {
                                         Spacer()
-                                        if (product.onSale) {
-                                            Text("-\(product.discountPercentage)")
-                                                .foregroundColor(.black)
-                                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                                                .background{
-                                                    Color.green
-                                                }
-                                                .padding()
-                                        }
+                                        DiscountedPercentagePillView(
+                                            onSale: product.onSale,
+                                            discountPercentage: product.discountPercentage
+                                        ).padding()
                                     }
                                 }
                             }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProductCardView: View {
+struct ProductItemView: View {
     let product: Product
     
     var body: some View {
@@ -33,12 +33,10 @@ struct ProductCardView: View {
             
             Spacer()
             
-            if product.onSale {
-                Text("-\(product.discountPercentage)")
-                    .foregroundColor(.black)
-                    .background(Capsule().foregroundColor(Color.green))
-                    .padding()
-            }
+            DiscountedPercentagePillView(
+                onSale: product.onSale,
+                discountPercentage: product.discountPercentage
+            )
             
             ZStack {
                 if (product.image.isEmpty) {
@@ -59,7 +57,7 @@ struct ProductCardView_Previews: PreviewProvider {
         List {
             Section(header: Text("Produtos mais vendidos")) {
                 ForEach(products, id: \.codeColor) { product in
-                    ProductCardView(product: product)
+                    ProductItemView(product: product)
                 }
             }
         }

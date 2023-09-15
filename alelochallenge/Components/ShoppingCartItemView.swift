@@ -16,7 +16,7 @@ struct ShoppingCartItemView: View {
         VStack {
         
             if let product = product {
-                ProductCardView(product: product)
+                ProductItemView(product: product)
             }
                 
             HStack() {
