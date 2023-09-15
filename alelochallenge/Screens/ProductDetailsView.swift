@@ -130,8 +130,7 @@ struct ProductDetailsView: View {
     }
 }
 
-/*
+
 #Preview {
-    ProductDetailsView(product: .constant(ProductApi.sampleData[2]), shoppingCart: .constant([]))
+    ProductDetailsView(product: .constant(Product.productsMock[2]), shoppingCart: .constant([]))
 }
-*/
