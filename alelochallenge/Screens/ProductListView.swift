@@ -16,23 +16,23 @@ struct ProductListView: View {
     
     var body: some View {
         NavigationStack {
-            List {
-                Section(header: Text("Produtos mais vendidos")) {
-                    if productStore.isLoading {
-                        //ProgressView()
-                    } else {
-                        ForEach($productStore.products, id: \.codeColor) { $product in
-                            NavigationLink(destination: ProductDetailsView(product: $product, shoppingCart: $shoppingCartStore.shoppingCart)) {
-                                ProductItemView(product: product)
+            if productStore.isLoading {
+                ProgressView()
+            } else {
+                List {
+                    Section(header: Text("Produtos mais vendidos")) {
+                            ForEach($productStore.products, id: \.codeColor) { $product in
+                                NavigationLink(destination: ProductDetailsView(product: $product, shoppingCart: $shoppingCartStore.shoppingCart)) {
+                                    ProductItemView(product: product)
+                                }
                             }
                         }
                     }
+                    .listStyle(InsetGroupedListStyle())
                 }
             }
-            .listStyle(InsetGroupedListStyle())
         }
     }
-}
 
 
 struct ProductListView_Previews: PreviewProvider {
