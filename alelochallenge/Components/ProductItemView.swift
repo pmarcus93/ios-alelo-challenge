@@ -14,39 +14,26 @@ struct ProductItemView: View {
         HStack {
             VStack(alignment: .leading) {
                 Text(product.name)
-                    .font(.system(size: 14).weight(.bold))
-                    .padding(.bottom, 2)
+                    .font(
+                        .system(size: 14)
+                        .weight(.bold))
+                    .padding(.bottom, 1)
                 
-                Text(product.onSale ? product.actualPrice : product.regularPrice)
-                    .font(.system(size: 14, weight: product.onSale ? .semibold : .regular))
-                    .foregroundStyle(product.onSale ? Color.green : Color.primary)
-                
-                if product.onSale {
-                    Text(product.regularPrice)
-                        .strikethrough(true)
-                        .font(.system(size: 12))
-                }
-                
-                Text("ou \(product.installments)")
-                    .font(.caption)
+                PriceDetailsView(
+                    onSale: product.onSale,
+                    regularPrice: product.regularPrice,
+                    actualPrice: product.actualPrice,
+                    installments: product.installments)
             }
             
-            Spacer()
-            
-            DiscountedPercentagePillView(
-                onSale: product.onSale,
-                discountPercentage: product.discountPercentage
-            )
-            
-            ZStack {
-                if (product.image.isEmpty) {
-                    NoImageSmallView()
-                } else {
-                    AsyncImageSmallView(imageUrl: product.image)
-                }
+            HStack {
+                Spacer()
+                DiscountedPercentagePillView(
+                    onSale: product.onSale,
+                    discountPercentage: product.discountPercentage
+                )
+                ImageLoaderSmallView(imageUrl: product.image)
             }
-            .frame(width: 75, height: 75)
-            .background(Color.white)
         }
     }
 }
