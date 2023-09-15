@@ -18,7 +18,7 @@ struct ShoppingCartView: View {
                 } else {
                     List {
                         ForEach($shoppingCart, id: \.sku) { $shoppingCardProduct in
-                            ShoppingCartItemView(product: findProduct(by: shoppingCardProduct.productId), shoppingCardProduct: $shoppingCardProduct, shoppingCart: $shoppingCart)
+                            ShoppingCartItemView(product: findProduct(by: shoppingCardProduct.productId), shoppingCartProduct: $shoppingCardProduct, shoppingCart: $shoppingCart)
                         }.onDelete { indexSet in
                             shoppingCart.remove(atOffsets: indexSet)
                         }
