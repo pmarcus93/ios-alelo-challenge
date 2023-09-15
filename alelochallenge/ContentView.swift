@@ -43,6 +43,17 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var productStore = ProductStore()
+    static var shoppingCartStore = ShoppingCartStore()
+    
+    static var previews: some View {
+        productStore.products = Product.productsMock
+        productStore.isLoading = false
+        shoppingCartStore.shoppingCart = Product.shoppingCartMock
+        
+        return ContentView()
+            .environmentObject(productStore)
+            .environmentObject(shoppingCartStore)
+    }
 }

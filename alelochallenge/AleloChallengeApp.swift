@@ -8,10 +8,7 @@
 import SwiftUI
 
 @main
-struct AleloChallengeApp: App {
-    @State private var shoppingCart: [ProductShoppingCart] = []
-    @State private var productsApi: [Product] = []
-    
+struct AleloChallengeApp: App {    
     @StateObject var productStore = ProductStore()
     @StateObject var shoppingCartStore = ShoppingCartStore()
     
