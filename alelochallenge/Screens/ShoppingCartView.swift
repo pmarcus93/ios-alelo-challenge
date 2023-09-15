@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ShoppingCartView: View {
     @Binding var shoppingCart: [ProductShoppingCart]
-    @Binding var products: [Product]
+    var products: [Product]
     
     var body: some View {
         VStack {
@@ -34,5 +34,5 @@ struct ShoppingCartView: View {
 }
 
 #Preview {
-    ShoppingCartView(shoppingCart: .constant(Product.shoppingCartMock), products: .constant(Product.productsMock))
+    ShoppingCartView(shoppingCart: .constant(Product.shoppingCartMock), products: Product.productsMock)
 }

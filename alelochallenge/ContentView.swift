@@ -21,7 +21,7 @@ struct ContentView: View {
                 }
                 .accessibilityLabel("Produtos")
                 .accessibilityAddTraits(.isButton)
-            ShoppingCartView(shoppingCart: $shoppingCart, products: $productsApi)
+            ShoppingCartView(shoppingCart: $shoppingCart, products: productsApi)
                 .tabItem {
                     Image(systemName: "cart.fill")
                     Text("Carrinho")
