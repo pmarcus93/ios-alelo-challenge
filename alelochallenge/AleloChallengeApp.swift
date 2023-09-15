@@ -12,9 +12,22 @@ struct AleloChallengeApp: App {
     @State private var shoppingCart: [ProductShoppingCart] = []
     @State private var productsApi: [Product] = []
     
+    @StateObject var productStore = ProductStore()
+    @StateObject var shoppingCartStore = ShoppingCartStore()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView(shoppingCart: $shoppingCart, productsApi: $productsApi)
+            ContentView()
+                .environmentObject(productStore)
+                .environmentObject(shoppingCartStore)
+                .task {
+                    do {
+                        try await productStore.loadDataFromApi()
+                        productStore.isLoading = false
+                    } catch {
+                        fatalError("Erro ao carregar os dados da API")
+                    }
+                }
         }
     }
 }

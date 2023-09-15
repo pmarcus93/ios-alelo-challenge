@@ -9,19 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @Binding var shoppingCart: [ProductShoppingCart]
-    @Binding var productsApi: [Product]
+    @EnvironmentObject var productStore: ProductStore
+    @EnvironmentObject var shoppingCartStore: ShoppingCartStore
     
     var body: some View {
         TabView {
-            ProductListView(shoppingCart: $shoppingCart, productsApi: $productsApi)
+            ProductListView()
                 .tabItem {
                     Image(systemName: "tshirt.fill")
                     Text("Produtos")
                 }
                 .accessibilityLabel("Produtos")
                 .accessibilityAddTraits(.isButton)
-            ShoppingCartView(shoppingCart: $shoppingCart, products: productsApi)
+            
+            ShoppingCartView()
                 .tabItem {
                     Image(systemName: "cart.fill")
                     Text("Carrinho")
@@ -29,12 +30,13 @@ struct ContentView: View {
                 .badge(getShoppingCartProductQuantity())
                 .accessibilityLabel("Carrinho de compras com \(getShoppingCartProductQuantity()) itens adicionados")
                 .accessibilityAddTraits(.isButton)
+             
         }
     }
     
     func getShoppingCartProductQuantity() -> Int {
         var quantity = 0
-        for item in shoppingCart {
+        for item in shoppingCartStore.shoppingCart {
             quantity += item.quantity
         }
         return quantity
@@ -42,5 +44,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(shoppingCart: .constant(Product.shoppingCartMock), productsApi: .constant(Product.productsMock))
+    ContentView()
 }

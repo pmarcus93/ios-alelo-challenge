@@ -10,7 +10,7 @@ import SwiftUI
 struct ShoppingCartItemView: View {
     var product: Product?
     @Binding var shoppingCartProduct: ProductShoppingCart
-    @Binding var shoppingCart: [ProductShoppingCart]
+    @EnvironmentObject var shoppingCartStore: ShoppingCartStore
     
     var body: some View {
         VStack {
@@ -38,7 +38,7 @@ struct ShoppingCartItemView: View {
                     if (shoppingCartProduct.quantity > 1) {
                         shoppingCartProduct.quantity -= 1
                     } else {
-                        shoppingCart.removeAll {$0.sku == shoppingCartProduct.sku}
+                        shoppingCartStore.shoppingCart.removeAll {$0.sku == shoppingCartProduct.sku}
                     }
                 }
             }.padding(.top)
@@ -47,5 +47,5 @@ struct ShoppingCartItemView: View {
 }
 
 #Preview {
-    ShoppingCartItemView(product: Product.productsMock[0], shoppingCartProduct: .constant(Product.shoppingCartMock[0]), shoppingCart: .constant(Product.shoppingCartMock))
+    ShoppingCartItemView(shoppingCartProduct: .constant(Product.shoppingCartMock[0]))
 }

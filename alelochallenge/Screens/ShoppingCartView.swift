@@ -8,31 +8,36 @@
 import SwiftUI
 
 struct ShoppingCartView: View {
-    @Binding var shoppingCart: [ProductShoppingCart]
-    var products: [Product]
+    @EnvironmentObject var productStore: ProductStore
+    @EnvironmentObject var shoppingCartStore: ShoppingCartStore
     
     var body: some View {
         VStack {
-                if shoppingCart.isEmpty {
+                if shoppingCartStore.shoppingCart.isEmpty {
                     EmptyCartView()
                 } else {
                     List {
-                        ForEach($shoppingCart, id: \.sku) { $shoppingCardProduct in
-                            ShoppingCartItemView(product: findProduct(by: shoppingCardProduct.productId), shoppingCartProduct: $shoppingCardProduct, shoppingCart: $shoppingCart)
+                        ForEach($shoppingCartStore.shoppingCart, id: \.sku) { $shoppingCartProduct in
+                            ShoppingCartItemView(
+                                product: findProduct(by: shoppingCartProduct.productId),
+                                shoppingCartProduct: $shoppingCartProduct
+                            )
                         }.onDelete { indexSet in
-                            shoppingCart.remove(atOffsets: indexSet)
+                            shoppingCartStore.shoppingCart.remove(atOffsets: indexSet)
                         }
-                    TotalPriceView(shoppingCart: shoppingCart, products: products)
+                    TotalPriceView(
+                        shoppingCart: shoppingCartStore.shoppingCart,
+                        products: productStore.products)
                 }
             }
         }
     }
     
     private func findProduct(by productId: String) -> Product? {
-        return products.first { $0.codeColor == productId }
+        return productStore.products.first { $0.codeColor == productId }
     }
 }
 
 #Preview {
-    ShoppingCartView(shoppingCart: .constant(Product.shoppingCartMock), products: Product.productsMock)
+    ShoppingCartView()
 }
