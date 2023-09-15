@@ -27,6 +27,8 @@ struct AsyncImageSmallView: View {
     }
 }
 
-#Preview {
-    AsyncImageSmallView(imageUrl: Product.productsMock[0].image)
+struct AsyncImageSmallView_Preview: PreviewProvider {
+    static var previews: some View {
+        return AsyncImageSmallView(imageUrl: Product.productsMock[0].image)
+    }
 }

@@ -28,9 +28,12 @@ struct DiscountedPercentagePillView: View {
     }
 }
 
-#Preview {
-    DiscountedPercentagePillView(
-        onSale: Product.productsMock[3].onSale,
-        discountPercentage: Product.productsMock[3].discountPercentage
-    )
+
+struct DiscountedPercentagePill_Preview: PreviewProvider {
+    static var previews: some View {
+        return DiscountedPercentagePillView(
+            onSale: Product.productsMock[3].onSale,
+            discountPercentage: Product.productsMock[3].discountPercentage
+        )
+    }
 }

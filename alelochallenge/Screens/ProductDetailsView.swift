@@ -125,7 +125,11 @@ struct ProductDetailsView: View {
     }
 }
 
-
-#Preview {
-    ProductDetailsView(product: .constant(Product.productsMock[2]), shoppingCart: .constant([]))
+struct ProductDetailsView_Previews: PreviewProvider {
+    static var productStore = ProductStore()
+    static var shoppingCartStore = ShoppingCartStore()
+    
+    static var previews: some View {
+        return ProductDetailsView(product: .constant(Product.productsMock[2]), shoppingCart: .constant([]))
+    }
 }

@@ -16,6 +16,8 @@
 		2C866ACB2AB486B50003F557 /* DiscountedPercentagePillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C866ACA2AB486B50003F557 /* DiscountedPercentagePillView.swift */; };
 		2C866ACD2AB48EED0003F557 /* ImageLoaderSmallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C866ACC2AB48EED0003F557 /* ImageLoaderSmallView.swift */; };
 		2C866ACF2AB490160003F557 /* PriceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C866ACE2AB490160003F557 /* PriceDetailsView.swift */; };
+		2C866AD22AB49DAF0003F557 /* ProductStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C866AD12AB49DAF0003F557 /* ProductStore.swift */; };
+		2C866AD42AB4A6EF0003F557 /* ShoppingCartStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C866AD32AB4A6EF0003F557 /* ShoppingCartStore.swift */; };
 		2C8C49C32AB1532800BB4F07 /* ShoppingCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C49C22AB1532800BB4F07 /* ShoppingCartView.swift */; };
 		2C9F93C32AADFD7A0057A452 /* AleloChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93C22AADFD7A0057A452 /* AleloChallengeApp.swift */; };
 		2C9F93C52AADFD7A0057A452 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F93C42AADFD7A0057A452 /* ContentView.swift */; };
@@ -56,6 +58,8 @@
 		2C866ACA2AB486B50003F557 /* DiscountedPercentagePillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountedPercentagePillView.swift; sourceTree = "<group>"; };
 		2C866ACC2AB48EED0003F557 /* ImageLoaderSmallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderSmallView.swift; sourceTree = "<group>"; };
 		2C866ACE2AB490160003F557 /* PriceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceDetailsView.swift; sourceTree = "<group>"; };
+		2C866AD12AB49DAF0003F557 /* ProductStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStore.swift; sourceTree = "<group>"; };
+		2C866AD32AB4A6EF0003F557 /* ShoppingCartStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartStore.swift; sourceTree = "<group>"; };
 		2C8C49C22AB1532800BB4F07 /* ShoppingCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartView.swift; sourceTree = "<group>"; };
 		2C9F93BF2AADFD7A0057A452 /* alelochallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alelochallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C9F93C22AADFD7A0057A452 /* AleloChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AleloChallengeApp.swift; sourceTree = "<group>"; };
@@ -97,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C866AD02AB49D970003F557 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				2C866AD12AB49DAF0003F557 /* ProductStore.swift */,
+				2C866AD32AB4A6EF0003F557 /* ShoppingCartStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		2C9F93B62AADFD7A0057A452 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +133,7 @@
 		2C9F93C12AADFD7A0057A452 /* alelochallenge */ = {
 			isa = PBXGroup;
 			children = (
+				2C866AD02AB49D970003F557 /* Store */,
 				2C9F93F22AAE03190057A452 /* Screens */,
 				2C9F93EF2AAE02950057A452 /* Components */,
 				2C9F93EC2AAE00030057A452 /* Models */,
@@ -330,7 +344,9 @@
 				2C7658272AB3C09C00DF396E /* NoImageSmallView.swift in Sources */,
 				2C7CC8A02AAE8998006A68CC /* Product.swift in Sources */,
 				2C8C49C32AB1532800BB4F07 /* ShoppingCartView.swift in Sources */,
+				2C866AD42AB4A6EF0003F557 /* ShoppingCartStore.swift in Sources */,
 				2C7658252AB3BE3D00DF396E /* TotalPriceView.swift in Sources */,
+				2C866AD22AB49DAF0003F557 /* ProductStore.swift in Sources */,
 				2C866ACB2AB486B50003F557 /* DiscountedPercentagePillView.swift in Sources */,
 				2C9F93FA2AAE39B20057A452 /* ProductDetailsView.swift in Sources */,
 				2C866ACF2AB490160003F557 /* PriceDetailsView.swift in Sources */,

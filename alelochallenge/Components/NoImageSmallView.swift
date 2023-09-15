@@ -18,6 +18,8 @@ struct NoImageSmallView: View {
     }
 }
 
-#Preview {
-    NoImageSmallView()
+struct NoImageSmall_Previews: PreviewProvider {
+    static var previews: some View {
+        return NoImageSmallView()
+    }
 }

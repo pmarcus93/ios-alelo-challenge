@@ -9,56 +9,43 @@ import SwiftUI
 
 struct ProductListView: View {
     
-    @Binding var shoppingCart: [ProductShoppingCart]
-    @Binding var productsApi: [Product]
-    @State private var isLoading = true
     let apiURL = "https://alelo-exacta-challenge.free.mockoapp.net/products"
+        
+    @EnvironmentObject var productStore: ProductStore
+    @EnvironmentObject var shoppingCartStore: ShoppingCartStore
     
     var body: some View {
         NavigationStack {
-            List {
-                Section(header: Text("Produtos mais vendidos")) {
-                    if isLoading {
-                        ProgressView()
-                    } else {
-                        ForEach($productsApi, id: \.codeColor) { $product in
-                            NavigationLink(destination: ProductDetailsView(product: $product, shoppingCart: $shoppingCart)) {
-                                ProductItemView(product: product)
+            if productStore.isLoading {
+                ProgressView()
+            } else {
+                List {
+                    Section(header: Text("Produtos mais vendidos")) {
+                            ForEach($productStore.products, id: \.codeColor) { $product in
+                                NavigationLink(destination: ProductDetailsView(product: $product, shoppingCart: $shoppingCartStore.shoppingCart)) {
+                                    ProductItemView(product: product)
+                                }
                             }
                         }
                     }
+                    .listStyle(InsetGroupedListStyle())
                 }
-            }
-            .listStyle(InsetGroupedListStyle())
-            .onAppear {
-                fetchData()
             }
         }
     }
 
-    func fetchData() {
-        guard let url = URL(string: apiURL) else {
-            return
-        }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data {
-                do {
-                    let productResponse = try JSONDecoder().decode(ProductResponse.self, from: data)
-                    DispatchQueue.main.async {
-                        self.productsApi = productResponse.products
-                        isLoading = false
-                    }
-                } catch {
-                    print("Erro ao decodificar o JSON obtido pela API: \(error)")
-                }
-            }
-        }.resume()
-    }
-}
 
-struct HomeView_Previews: PreviewProvider {
+struct ProductListView_Previews: PreviewProvider {
+    static var productStore = ProductStore()
+    static var shoppingCartStore = ShoppingCartStore()
+    
     static var previews: some View {
-        ProductListView(shoppingCart: .constant(Product.shoppingCartMock), productsApi: .constant(Product.productsMock))
+        productStore.products = Product.productsMock
+        productStore.isLoading = false
+        shoppingCartStore.shoppingCart = Product.shoppingCartMock
+        
+        return ProductListView()
+            .environmentObject(productStore)
+            .environmentObject(shoppingCartStore)
     }
 }

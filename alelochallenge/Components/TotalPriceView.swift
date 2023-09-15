@@ -48,6 +48,11 @@ func removeCurrencySymbolAndParse(_ input: String) -> Double? {
     }
 }
 
-#Preview {
-    TotalPriceView(shoppingCart: Product.shoppingCartMock, products: Product.productsMock)
+struct TotalPrice_Previews: PreviewProvider {
+    static var previews: some View {
+        return TotalPriceView(
+            shoppingCart: Product.shoppingCartMock,
+            products: Product.productsMock
+        )
+    }
 }

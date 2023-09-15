@@ -18,7 +18,6 @@ struct ProductItemView: View {
                         .system(size: 14)
                         .weight(.bold))
                     .padding(.bottom, 1)
-                
                 PriceDetailsView(
                     onSale: product.onSale,
                     regularPrice: product.regularPrice,
@@ -26,14 +25,12 @@ struct ProductItemView: View {
                     installments: product.installments)
             }
             
-            HStack {
-                Spacer()
-                DiscountedPercentagePillView(
-                    onSale: product.onSale,
-                    discountPercentage: product.discountPercentage
-                )
-                ImageLoaderSmallView(imageUrl: product.image)
-            }
+            Spacer()
+            DiscountedPercentagePillView(
+                onSale: product.onSale,
+                discountPercentage: product.discountPercentage
+            )
+            ImageLoaderSmallView(imageUrl: product.image)
         }
     }
 }

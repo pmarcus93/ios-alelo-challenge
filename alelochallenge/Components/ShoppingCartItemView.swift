@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ShoppingCartItemView: View {
     var product: Product?
-    @Binding var shoppingCardProduct: ProductShoppingCart
-    @Binding var shoppingCart: [ProductShoppingCart]
+    @Binding var shoppingCartProduct: ProductShoppingCart
+    @EnvironmentObject var shoppingCartStore: ShoppingCartStore
     
     var body: some View {
         VStack {
@@ -22,23 +22,23 @@ struct ShoppingCartItemView: View {
             HStack() {
                 Text("Tamanho:")
                     .font(.system(size: 14))
-                Text("\(shoppingCardProduct.size)")
+                Text("\(shoppingCartProduct.size)")
                     .font(.system(size: 16).weight(.bold))
                 
                 Stepper {
                     HStack(spacing: 0) {
                         Text("Quantidade: ")
                             .font(.system(size: 14))
-                        Text("\(shoppingCardProduct.quantity)")
+                        Text("\(shoppingCartProduct.quantity)")
                             .font(.system(size: 16).weight(.bold))
                     }
                 } onIncrement: {
-                    shoppingCardProduct.quantity += 1
+                    shoppingCartProduct.quantity += 1
                 } onDecrement: {
-                    if (shoppingCardProduct.quantity > 1) {
-                        shoppingCardProduct.quantity -= 1
+                    if (shoppingCartProduct.quantity > 1) {
+                        shoppingCartProduct.quantity -= 1
                     } else {
-                        shoppingCart.removeAll {$0.sku == shoppingCardProduct.sku}
+                        shoppingCartStore.shoppingCart.removeAll {$0.sku == shoppingCartProduct.sku}
                     }
                 }
             }.padding(.top)
@@ -46,6 +46,16 @@ struct ShoppingCartItemView: View {
     }
 }
 
-#Preview {
-    ShoppingCartItemView(product: Product.productsMock[0], shoppingCardProduct: .constant(Product.shoppingCartMock[0]), shoppingCart: .constant(Product.shoppingCartMock))
+struct ShoppingCartItemView_Previews: PreviewProvider {
+    static var shoppingCartStore = ShoppingCartStore()
+
+    static var previews: some View {
+        shoppingCartStore.shoppingCart = Product.shoppingCartMock
+
+        return ShoppingCartItemView(
+            product: Product.productsMock[1],
+            shoppingCartProduct: .constant(Product.shoppingCartMock[0])
+        )
+        .environmentObject(shoppingCartStore)
+    }
 }
