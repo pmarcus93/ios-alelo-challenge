@@ -125,8 +125,6 @@ struct ProductDetailsView: View {
     }
 }
 
-
-
 struct ProductDetailsView_Previews: PreviewProvider {
     static var productStore = ProductStore()
     static var shoppingCartStore = ShoppingCartStore()

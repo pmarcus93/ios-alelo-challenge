@@ -38,6 +38,15 @@ struct ShoppingCartView: View {
     }
 }
 
-#Preview {
-    ShoppingCartView()
+struct ShoppingCartView_Previews: PreviewProvider {
+    static var productStore = ProductStore()
+    static var shoppingCartStore = ShoppingCartStore()
+    
+    static var previews: some View {
+        shoppingCartStore.shoppingCart = Product.shoppingCartMock
+
+        return ShoppingCartView()
+            .environmentObject(productStore)
+            .environmentObject(shoppingCartStore)
+    }
 }

@@ -30,12 +30,7 @@ class ProductStore: ObservableObject {
                 } catch {
                     print("Erro ao decodificar o JSON obtido pela API: \(error)")
                 }
-                self.showData()
             }
         }.resume()
-    }
-    
-    func showData() {
-        print(products)
     }
 }

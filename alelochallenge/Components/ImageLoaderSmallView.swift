@@ -23,6 +23,8 @@ struct ImageLoaderSmallView: View {
     }
 }
 
-#Preview {
-    ImageLoaderSmallView(imageUrl: Product.productsMock[1].image)
+struct ImageLoaderSmallView_Previews: PreviewProvider {
+    static var previews: some View {
+        return ImageLoaderSmallView(imageUrl: Product.productsMock[1].image)
+    }
 }

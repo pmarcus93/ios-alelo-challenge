@@ -31,9 +31,14 @@ struct PriceDetailsView: View {
     }
 }
 
-#Preview {
-    PriceDetailsView(onSale: Product.productsMock[1].onSale,
-                     regularPrice: Product.productsMock[1].regularPrice,
-                     actualPrice: Product.productsMock[1].actualPrice,
-                     installments: Product.productsMock[1].installments)
+
+struct PriceDetailsView_Previews: PreviewProvider {
+    static var previews: some View {
+        return PriceDetailsView(
+             onSale: Product.productsMock[1].onSale,
+             regularPrice: Product.productsMock[1].regularPrice,
+             actualPrice: Product.productsMock[1].actualPrice,
+             installments: Product.productsMock[1].installments
+        )
+    }
 }
