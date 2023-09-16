@@ -7,8 +7,8 @@ A ideia foi construir um MVP respeitando ao máximo as guidelines de design da A
 App desenvolvido na versão beta do **XCode 15**, que deve ser lançado junto com o MacOS Sonoma.  
 Caso não consiga executar o projeto localmente em versões anteriores da IDE, por favor me contate.
 
-![Captura de tela do app no modo escuro](/screenshots/AleloChallengeDarkMode.jpg)
-![Captura de tela do app no modo claro](/screenshots/AleloChallengeLightMode.jpg)
+![Captura de tela do app no modo escuro](/screenshots/AleloChallengeDarkMode.webp)
+![Captura de tela do app no modo claro](/screenshots/AleloChallengeLightMode.webp)
 
 
 Compatível com redimensionamento em iPads com suporte ao organizador visual. 
