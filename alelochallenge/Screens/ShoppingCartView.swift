@@ -17,17 +17,19 @@ struct ShoppingCartView: View {
                     EmptyCartView()
                 } else {
                     List {
-                        ForEach($shoppingCartStore.shoppingCart, id: \.sku) { $shoppingCartProduct in
-                            ShoppingCartItemView(
-                                product: findProduct(by: shoppingCartProduct.productId),
-                                shoppingCartProduct: $shoppingCartProduct
-                            )
-                        }.onDelete { indexSet in
-                            shoppingCartStore.shoppingCart.remove(atOffsets: indexSet)
-                        }
-                    TotalPriceView(
-                        shoppingCart: shoppingCartStore.shoppingCart,
-                        products: productStore.products)
+                        Section(header: Text("Carrinho de compras")) {
+                            ForEach($shoppingCartStore.shoppingCart, id: \.sku) { $shoppingCartProduct in
+                                ShoppingCartItemView(
+                                    product: findProduct(by: shoppingCartProduct.productId),
+                                    shoppingCartProduct: $shoppingCartProduct
+                                )
+                            }.onDelete { indexSet in
+                                shoppingCartStore.shoppingCart.remove(atOffsets: indexSet)
+                            }
+                            TotalPriceView(
+                                shoppingCart: shoppingCartStore.shoppingCart,
+                                products: productStore.products)
+                    }
                 }
             }
         }
